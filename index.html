@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#11110f">
+<meta name="description" content="AFTERBELL — a private little corner for school memories, plans, and people.">
+<title>AFTERBELL — After the final bell</title>
+<style>
+:root{
+  --bg:#11110f;--panel:#191916;--panel2:#20201c;--line:#33332c;--ink:#f3f0e8;--muted:#aaa79b;
+  --accent:#d4b58b;--accent2:#9fae9b;--rose:#bd8980;--shadow:0 18px 55px #0005;--radius:22px;
+  --serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#29241c 0,transparent 36%),var(--bg);color:var(--ink);font-family:var(--sans);min-height:100vh}
+button,input,textarea,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+a{color:inherit;text-decoration:none}.app{min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:248px;padding:28px 18px 20px;border-right:1px solid #ffffff10;background:#121210eF;backdrop-filter:blur(18px);z-index:20;display:flex;flex-direction:column}
+.brand{display:flex;align-items:center;gap:12px;padding:4px 10px 28px}.brand-mark{width:38px;height:38px;border:1px solid #cbb18b88;border-radius:13px;display:grid;place-items:center;color:var(--accent);font-family:var(--serif);font-size:22px;transform:rotate(-5deg)}.brand-name{font-size:14px;letter-spacing:.19em;font-weight:800}.brand-sub{font-size:10px;color:var(--muted);letter-spacing:.15em;margin-top:4px}
+.nav-label{font-size:10px;letter-spacing:.18em;color:#77766d;padding:10px 12px 9px;text-transform:uppercase}.nav{display:grid;gap:5px}.nav button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:0;border-radius:13px;background:transparent;color:#aaa89d;padding:12px 13px;font-size:13px;transition:.2s}.nav button:hover{background:#ffffff08;color:var(--ink)}.nav button.active{background:#d4b58b18;color:#f2d7b2;border:1px solid #d4b58b20}.nav-icon{width:19px;text-align:center;font-size:17px}.nav-count{margin-left:auto;border-radius:20px;background:#ffffff0c;padding:3px 7px;font-size:10px}.sidebar-bottom{margin-top:auto}.mini-note{border:1px solid var(--line);border-radius:17px;padding:14px;background:linear-gradient(135deg,#29251e,#191916)}.mini-note small{color:var(--accent);letter-spacing:.13em;font-size:9px;text-transform:uppercase}.mini-note p{font:italic 15px/1.4 var(--serif);margin:10px 0 3px;color:#e2d6c3}.user-mini{display:flex;gap:10px;align-items:center;padding:17px 7px 0}.avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;background:linear-gradient(145deg,#a78d71,#4f5142);color:#fff;font-size:12px;font-weight:700;border:1px solid #ffffff25;overflow:hidden}.avatar img{width:100%;height:100%;object-fit:cover}.user-mini b{font-size:12px}.user-mini small{display:block;color:var(--muted);font-size:10px;margin-top:3px}
+.main{margin-left:248px;min-height:100vh;padding:28px clamp(20px,4vw,58px) 80px;max-width:1800px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:30px}.crumb{color:var(--muted);font-size:12px}.crumb strong{color:var(--ink);font-weight:600}.top-actions{display:flex;align-items:center;gap:10px}.icon-btn,.ghost-btn,.primary-btn,.soft-btn{border:1px solid var(--line);border-radius:12px;background:#ffffff05;color:var(--ink);padding:10px 13px;font-size:12px;transition:.2s}.icon-btn{width:39px;height:39px;padding:0;font-size:17px}.icon-btn:hover,.ghost-btn:hover,.soft-btn:hover{border-color:#a48d6d;color:#f0d5af}.primary-btn{background:var(--accent);border-color:var(--accent);color:#1b1813;font-weight:750}.primary-btn:hover{background:#e4c69f;transform:translateY(-1px)}.soft-btn{background:#d4b58b13;border-color:#d4b58b35;color:#e9cda7}.mobile-brand{display:none}.page{display:none;animation:fade .28s ease}.page.active{display:block}@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700}.heading{font:clamp(34px,4.2vw,56px)/1.04 var(--serif);font-weight:400;letter-spacing:-.035em;margin:10px 0 12px}.subheading{color:var(--muted);font-size:13px;line-height:1.7;max-width:580px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:34px 0 17px}.section-head h2{font:26px var(--serif);font-weight:400;margin:0}.section-head p{font-size:11px;color:var(--muted);margin:7px 0 0}.section-head .ghost-btn{white-space:nowrap}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);gap:22px;align-items:stretch}.hero-copy{padding:27px 0 20px}.hero-copy .heading{max-width:550px}.hero-copy .heading em{color:var(--accent);font-weight:400}.hero-buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.micro-trust{display:flex;align-items:center;gap:9px;margin-top:24px;color:#8f8d82;font-size:10px}.dot{width:6px;height:6px;background:var(--accent2);border-radius:50%;display:inline-block}
+.collage{position:relative;min-height:310px;border:1px solid #ffffff13;border-radius:24px;overflow:hidden;background:linear-gradient(145deg,#39342b,#1d211d);box-shadow:var(--shadow)}.collage:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000 40%,#0b0b09e8 100%);z-index:1}.photo{position:absolute;background-size:cover;background-position:center;box-shadow:0 12px 30px #0007;border:5px solid #e7decb;border-bottom-width:19px;filter:saturate(.78)}.photo.one{width:49%;height:63%;left:8%;top:9%;transform:rotate(-7deg);background-image:linear-gradient(135deg,#68736b,#c6b49b 45%,#53574a)}.photo.two{width:45%;height:58%;right:5%;top:17%;transform:rotate(8deg);background-image:linear-gradient(135deg,#a67e66,#e0c7a3 40%,#596454)}.photo.three{width:38%;height:44%;left:32%;top:42%;transform:rotate(3deg);background-image:linear-gradient(145deg,#d4b58b,#6e7761 48%,#323c3a)}.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#ffffff30,transparent 45%,#0002)}.collage-caption{position:absolute;z-index:2;bottom:20px;left:22px;right:22px;display:flex;justify-content:space-between;align-items:end;gap:10px}.collage-caption strong{font:italic 25px var(--serif);font-weight:400}.collage-caption small{display:block;color:#c8c2b5;font-size:10px;margin-top:5px}.polaroid-stamp{font:italic 12px var(--serif);color:#d9c4a3;transform:rotate(-8deg)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}.stat{border:1px solid var(--line);border-radius:17px;padding:16px;background:linear-gradient(135deg,#ffffff05,#ffffff01)}.stat .stat-icon{color:var(--accent);font-size:17px}.stat strong{display:block;font:28px var(--serif);font-weight:400;margin:12px 0 4px}.stat span{color:var(--muted);font-size:10px}
+.grid-2{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}.panel{background:linear-gradient(145deg,#1b1b17,#171714);border:1px solid var(--line);border-radius:var(--radius);padding:20px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}.panel-head h3{font:21px var(--serif);font-weight:400;margin:0}.panel-head span{font-size:10px;color:var(--muted)}
+.memory-list{display:grid;gap:12px}.memory-row{display:flex;gap:13px;align-items:center;padding:10px;border-radius:15px;background:#ffffff04;border:1px solid #ffffff08}.memory-thumb{width:70px;height:74px;border-radius:11px;flex-shrink:0;background:linear-gradient(135deg,#82705a,#424a3e 60%,#c4ad8a);position:relative;overflow:hidden}.memory-thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#ffffff35,transparent 50%)}.memory-row:nth-child(2) .memory-thumb{background:linear-gradient(145deg,#b98b6c,#484c45 60%,#d9c4a0)}.memory-row:nth-child(3) .memory-thumb{background:linear-gradient(145deg,#6e7771,#b2a48b 60%,#5a483b)}.memory-meta{min-width:0;flex:1}.memory-meta strong{font:17px var(--serif);font-weight:400}.memory-meta p{margin:6px 0;color:var(--muted);font-size:10px;line-height:1.4}.memory-meta small{font-size:9px;color:#d4b58b}.row-arrow{color:#8f8a7d;font-size:18px}
+.event-list{display:grid;gap:12px}.event{display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center;padding-bottom:12px;border-bottom:1px solid #ffffff0d}.event:last-child{border-bottom:0;padding-bottom:0}.datebox{border:1px solid #d4b58b3c;border-radius:12px;text-align:center;padding:7px 4px;background:#d4b58b0b}.datebox b{font:22px var(--serif);display:block;color:#e0c39a}.datebox small{font-size:9px;letter-spacing:.1em;color:var(--muted)}.event-info b{font:16px var(--serif);font-weight:400}.event-info small{display:block;color:var(--muted);font-size:10px;margin-top:5px}.pill{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border-radius:20px;background:#d4b58b12;color:#dfc29b;font-size:9px;border:1px solid #d4b58b24;white-space:nowrap}.pill.green{background:#9fae9b13;color:#b8c9b1;border-color:#9fae9b30}.pill.rose{background:#bd898014;color:#d7a39a;border-color:#bd89802c}
+.quote-panel{position:relative;overflow:hidden;background:linear-gradient(135deg,#2b2920,#1b1b17);min-height:185px;display:flex;flex-direction:column;justify-content:center}.quote-panel:after{content:"“";position:absolute;right:15px;top:-35px;font:180px var(--serif);color:#d4b58b12}.quote-panel blockquote{font:italic 25px/1.35 var(--serif);margin:0;max-width:400px;position:relative;z-index:1}.quote-panel small{margin-top:18px;color:var(--accent);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:22px 0}.search{background:#ffffff06;border:1px solid var(--line);border-radius:12px;padding:11px 13px;color:var(--ink);min-width:180px;flex:1}.filter{background:#1b1b17;color:var(--muted);border:1px solid var(--line);border-radius:12px;padding:11px}.album-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.album-card{border:1px solid var(--line);border-radius:19px;overflow:hidden;background:#1b1b17;transition:.2s}.album-card:hover{transform:translateY(-3px);border-color:#77644b}.album-cover{height:185px;position:relative;overflow:hidden;background:linear-gradient(135deg,#8b8068,#384a42 55%,#c2a781)}.album-cover:before,.album-cover:after{content:"";position:absolute;border:5px solid #e6ddca;border-bottom-width:17px;box-shadow:0 8px 20px #0005}.album-cover:before{width:52%;height:70%;left:12%;top:13%;transform:rotate(-8deg);background:linear-gradient(145deg,#b99b7d,#525f51)}.album-cover:after{width:46%;height:62%;right:5%;top:22%;transform:rotate(8deg);background:linear-gradient(145deg,#d0b89b,#6e7965)}.album-card:nth-child(2) .album-cover{background:linear-gradient(135deg,#a87d69,#555d50,#252e2a)}.album-card:nth-child(3) .album-cover{background:linear-gradient(135deg,#7b8272,#c7a987,#464438)}.album-card:nth-child(4) .album-cover{background:linear-gradient(135deg,#555c59,#b39a7a,#7c6754)}.album-card:nth-child(5) .album-cover{background:linear-gradient(135deg,#4b5b51,#b9a68d,#6b6d5d)}.album-card:nth-child(6) .album-cover{background:linear-gradient(135deg,#a18b73,#3d4841,#7e7561)}.album-cover-label{position:absolute;z-index:2;left:13px;bottom:12px;color:white;font:italic 16px var(--serif);text-shadow:0 2px 8px #000}.album-info{padding:14px}.album-info strong{font:19px var(--serif);font-weight:400}.album-info p{font-size:10px;color:var(--muted);margin:7px 0 11px}.album-footer{display:flex;justify-content:space-between;align-items:center;color:#a6a193;font-size:10px}
+.feed-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.feed-card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#1b1b17}.feed-image{height:215px;position:relative;background:linear-gradient(145deg,#9e8d72,#505b4c 52%,#c6b69a)}.feed-card:nth-child(2) .feed-image{background:linear-gradient(145deg,#5e6a5d,#c2a58b 50%,#8b6e59)}.feed-card:nth-child(3) .feed-image{background:linear-gradient(145deg,#c1a889,#555c50 52%,#373d36)}.feed-card:nth-child(4) .feed-image{background:linear-gradient(145deg,#8c7562,#414b42 52%,#bba98d)}.feed-image:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0000 45%,#0009)}.feed-image span{position:absolute;left:13px;bottom:12px;z-index:1;font-size:10px;color:#f0e8db}.feed-body{padding:14px}.feed-body h3{font:19px var(--serif);font-weight:400;margin:0 0 8px}.feed-body p{color:var(--muted);font-size:11px;line-height:1.6;margin:0 0 13px}.feed-actions{display:flex;gap:8px}.feed-actions button{flex:1;padding:8px;border:1px solid var(--line);border-radius:10px;background:transparent;color:#c5bcae;font-size:10px}
+.hangout-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.hangout-card{border:1px solid var(--line);border-radius:20px;padding:19px;background:linear-gradient(135deg,#22211c,#181815)}.hangout-card h3{font:24px var(--serif);font-weight:400;margin:14px 0 7px}.hangout-card p{color:var(--muted);font-size:11px;line-height:1.6}.hangout-meta{display:flex;gap:8px;flex-wrap:wrap;margin:13px 0}.rsvp-row{display:flex;gap:7px;flex-wrap:wrap;border-top:1px solid #ffffff10;padding-top:13px;margin-top:14px}.rsvp-row button{font-size:10px;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:#ffffff04;color:#bdb7aa}.rsvp-row button.selected{background:#d4b58b;color:#191611;border-color:#d4b58b;font-weight:700}
+.poll-list{display:grid;gap:14px}.poll-card{border:1px solid var(--line);border-radius:18px;padding:18px;background:#1b1b17}.poll-card h3{font:22px var(--serif);font-weight:400;margin:0 0 7px}.poll-card>p{font-size:10px;color:var(--muted);margin:0 0 15px}.poll-option{display:flex;align-items:center;gap:9px;width:100%;border:1px solid #ffffff10;background:#ffffff03;color:var(--ink);border-radius:11px;padding:11px;margin-top:7px;text-align:left;font-size:11px}.poll-option:hover{border-color:#bda27c}.poll-option.chosen{border-color:var(--accent);background:#d4b58b15}.poll-option .percent{margin-left:auto;color:var(--accent);font-size:10px}.poll-bar{height:4px;background:#ffffff0b;border-radius:10px;margin-top:7px;overflow:hidden}.poll-bar span{height:100%;display:block;background:var(--accent);border-radius:10px}
+.notice-list{display:grid;gap:12px}.notice{display:flex;gap:13px;padding:16px;border:1px solid var(--line);border-radius:16px;background:#1b1b17}.notice-pin{width:37px;height:37px;border-radius:12px;display:grid;place-items:center;background:#d4b58b15;color:var(--accent);flex-shrink:0}.notice h3{font:19px var(--serif);font-weight:400;margin:0 0 6px}.notice p{font-size:11px;line-height:1.65;color:var(--muted);margin:0 0 8px}.notice small{font-size:9px;color:#8c897e}
+.member-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.member-card{padding:19px 13px;text-align:center;border:1px solid var(--line);border-radius:18px;background:#1b1b17}.member-avatar{width:60px;height:60px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;font-size:17px;font-weight:700;background:linear-gradient(135deg,#a88e6b,#4e5a4b);border:2px solid #d4b58b55}.member-card:nth-child(3n) .member-avatar{background:linear-gradient(135deg,#bd8980,#62544b)}.member-card h3{font:17px var(--serif);font-weight:400;margin:0 0 4px}.member-card p{font-size:10px;color:var(--muted);margin:0 0 11px}.member-card small{font-size:9px;color:#c5b08f}
+.empty-state{border:1px dashed #5a5548;border-radius:18px;padding:34px 20px;text-align:center;color:var(--muted)}.empty-state b{display:block;color:var(--ink);font:22px var(--serif);font-weight:400;margin:10px 0}.empty-state p{font-size:11px;line-height:1.6;max-width:420px;margin:0 auto 14px}
+.banner{padding:11px 14px;border-radius:12px;background:#d4b58b0e;border:1px solid #d4b58b25;color:#d9c29e;font-size:10px;line-height:1.6;margin:16px 0}
+.modal-backdrop{display:none;position:fixed;inset:0;background:#000b;backdrop-filter:blur(8px);z-index:50;align-items:center;justify-content:center;padding:16px}.modal-backdrop.open{display:flex}.modal{width:min(100%,510px);max-height:90vh;overflow:auto;background:#1a1a16;border:1px solid #4a4539;border-radius:23px;padding:24px;box-shadow:var(--shadow)}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.modal-head h2{font:27px var(--serif);font-weight:400;margin:0}.close-btn{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:10px;width:35px;height:35px}.form-grid{display:grid;gap:13px}.field label{display:block;font-size:10px;letter-spacing:.08em;color:#b7b0a2;margin-bottom:7px}.field input,.field textarea,.field select{width:100%;border:1px solid #3b3931;background:#11110f;color:var(--ink);border-radius:11px;padding:12px}.field textarea{min-height:90px;resize:vertical}.form-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:80;background:#eee2ce;color:#1b1813;padding:12px 17px;border-radius:13px;font-size:12px;box-shadow:var(--shadow);transition:.25s;max-width:calc(100vw - 30px)}.toast.show{opacity:1;transform:translate(-50%,0)}.mobile-nav{display:none}
+@media(max-width:1100px){.sidebar{width:220px}.main{margin-left:220px;padding-inline:26px}.album-grid,.feed-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.member-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{grid-template-columns:1fr 1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.sidebar{display:none}.main{margin:0;padding:18px 16px calc(94px + env(safe-area-inset-bottom))}.topbar{margin-bottom:23px}.mobile-brand{display:flex;align-items:center;gap:9px}.mobile-brand .brand-mark{width:32px;height:32px;font-size:19px;border-radius:10px}.mobile-brand b{font-size:11px;letter-spacing:.16em}.crumb{display:none}.top-actions .top-label{display:none}.hero{grid-template-columns:1fr;gap:16px}.hero-copy{padding:8px 0 0}.heading{font-size:42px}.collage{min-height:280px}.stats{gap:9px;margin-top:17px}.stat{padding:13px}.stat strong{font-size:25px}.grid-2{grid-template-columns:1fr}.section-head{margin-top:28px}.section-head h2{font-size:24px}.album-grid,.feed-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.album-cover{height:145px}.feed-image{height:160px}.album-info,.feed-body{padding:11px}.album-info strong,.feed-body h3{font-size:17px}.hangout-grid{grid-template-columns:1fr}.member-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.panel{padding:16px;border-radius:18px}.quote-panel blockquote{font-size:23px}.mobile-nav{display:flex;position:fixed;z-index:30;bottom:0;left:0;right:0;padding:8px 7px calc(8px + env(safe-area-inset-bottom));background:#141411f2;backdrop-filter:blur(20px);border-top:1px solid #ffffff14;justify-content:space-around;gap:2px}.mobile-nav button{border:0;background:transparent;color:#8f8c80;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:0;flex:1;padding:6px 2px;font-size:9px}.mobile-nav button span{font-size:18px}.mobile-nav button.active{color:var(--accent)}.top-actions .icon-btn{width:35px;height:35px}.toolbar{gap:7px}.search{min-width:130px}.filter{max-width:130px}.event{grid-template-columns:45px 1fr auto}.event-info b{font-size:15px}.event .pill{font-size:8px;padding:5px 6px}}
+@media(max-width:390px){.heading{font-size:36px}.album-grid,.feed-grid{grid-template-columns:1fr}.album-cover{height:190px}.feed-image{height:205px}.member-grid{gap:8px}.stat span{font-size:9px}.collage{min-height:245px}.collage-caption strong{font-size:22px}}
+
+/* AFTERBELL RETRO PATCH — preserve the existing structure and interactions */
+:root{
+ --bg:#211a20;--panel:#30252b;--panel2:#3a2d32;--line:#66504c;--ink:#f4e7d2;--muted:#c2aa9a;
+ --accent:#e5ad78;--accent2:#a8b39a;--rose:#d58b83;--shadow:0 14px 34px #100b10a8;--radius:15px;
+ --serif:Georgia,"Palatino Linotype","Book Antiqua",serif;
+}
+html{background:var(--bg)}
+body{
+ background-color:var(--bg);
+ background-image:radial-gradient(ellipse at 12% 7%,#70463d55 0,transparent 34%),radial-gradient(ellipse at 86% 32%,#57415b44 0,transparent 36%),repeating-linear-gradient(0deg,#fff0 0 31px,#d4b58b09 32px 33px);
+ color:var(--ink)
+}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.11;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");mix-blend-mode:soft-light}
+.sidebar{background:#211a20ed;border-right:1px dashed #9a756255;box-shadow:8px 0 24px #100b1030}
+.brand-mark{border-radius:9px 14px 8px 12px;border:1px solid #e5ad78a0;color:#f0bd8c;transform:rotate(-8deg);font-style:italic}
+.brand-name{letter-spacing:.16em}.brand-sub{color:#c4a899;letter-spacing:.12em}
+.nav-label{color:#c08e77}.nav button{border-radius:8px 15px 9px 14px;color:#c8b5a8}
+.nav button.active{background:#d78e6720;color:#ffcf9e;border:1px dashed #d99c72a0;transform:rotate(-.35deg)}
+.nav button:hover{background:#f0d4b50d;color:#ffe7ca}
+.mini-note{border:1px dashed #9c7464;border-radius:5px 16px 8px 14px;background:linear-gradient(145deg,#48332f,#2b2228);transform:rotate(-1deg)}
+.mini-note p{font-family:"Palatino Linotype",Georgia,serif;color:#f0d9bf}
+.main{position:relative}
+.eyebrow{color:#efb783;letter-spacing:.16em}
+.heading{font-family:"Palatino Linotype",Georgia,serif;letter-spacing:-.045em;text-shadow:1px 2px 0 #100b1025}
+.heading em{color:#f1bd91!important}
+.subheading{color:#cdb8a7}
+.topbar{border-bottom:1px dashed #96705e55;padding-bottom:17px}
+.icon-btn,.ghost-btn,.soft-btn,.primary-btn{border-radius:9px 14px 8px 13px;transition:transform .18s,background .18s;box-shadow:0 3px 0 #100b102b}
+.icon-btn,.ghost-btn,.soft-btn{background:#382a30;border-color:#76584f;color:#e9d3bd}
+.primary-btn{background:#e8b985;border-color:#e8b985;color:#38231f}
+.primary-btn:hover{background:#f3c99d;transform:translateY(-2px) rotate(-.4deg)}
+.panel,.stat,.album-card,.feed-card,.hangout-card,.member-card,.notice-card,.poll-card{
+ background:linear-gradient(145deg,#382b31f5,#2b2228f5);border-color:#73594e;border-radius:13px 19px 12px 17px;box-shadow:0 7px 22px #100b101c;position:relative
+}
+.panel:before,.stat:before,.album-card:before,.feed-card:before,.hangout-card:before,.member-card:before,.notice-card:before,.poll-card:before{
+ content:"";position:absolute;top:-5px;left:44%;width:62px;height:13px;background:#e4b98a55;transform:rotate(-3deg);z-index:3;pointer-events:none;clip-path:polygon(2% 0,100% 6%,96% 100%,0 91%)
+}
+.stat{background:linear-gradient(135deg,#3b2e32,#2b2228);border-style:dashed;padding:17px}
+.stat strong{color:#f2c18f;font-family:"Palatino Linotype",Georgia,serif}
+.collage{border:5px solid #d7c4a6;border-radius:4px 16px 6px 14px;background:linear-gradient(145deg,#7b5b4b,#4c5548 50%,#29232a);box-shadow:0 18px 35px #100b1080;transform:rotate(.45deg)}
+.photo{border-color:#f1e5cf;filter:sepia(.18) saturate(.78)}
+.collage-caption strong{font-family:"Palatino Linotype",Georgia,serif;color:#ffe3bf}
+.memory-row{background:#f0d7b509;border:1px dashed #8d6a5b;border-radius:8px 15px 8px 13px}
+.memory-thumb{border:3px solid #e7d7bb;border-radius:3px 8px 4px 7px;transform:rotate(-2deg)}
+.event{border-bottom:1px dashed #98736266}
+.datebox{background:#d58b8317;border-color:#d58b8370;border-radius:5px 9px 6px 8px;transform:rotate(-2deg)}
+.datebox b{color:#f0b28e}
+.pill{background:#e5ad7815;color:#f1c69e;border-color:#c18a6860;border-radius:5px 12px 5px 11px}
+.pill.green{background:#a8b39a18;color:#d0d7bf;border-color:#a8b39a55}
+.pill.rose{background:#d58b831b;color:#f0b1a5;border-color:#d58b8355}
+.quote-panel{background:linear-gradient(135deg,#49352f,#30252b);border:1px dashed #9b7561}
+.quote-panel blockquote{color:#f1d8ba}
+.album-card,.feed-card{overflow:visible}
+.album-cover,.feed-image{border-radius:11px 15px 4px 4px;filter:sepia(.12)}
+.album-cover:before,.album-cover:after{border-color:#f0e4cf;box-shadow:0 7px 16px #100b1070}
+.album-info,.feed-body{background:transparent}
+.album-info strong,.feed-body h3,.panel-head h3,.section-head h2{font-family:"Palatino Linotype",Georgia,serif;color:#f4dfc4}
+.feed-actions button{border-radius:7px 11px 6px 10px;border-color:#785a50;color:#e6cbb3}
+.search,.filter,input,textarea,select{background:#211a20;color:#f4e7d2;border-color:#76584f;border-radius:8px 12px 7px 11px}
+.search::placeholder,input::placeholder,textarea::placeholder{color:#b49b8d}
+.toolbar{border-left:2px solid #d58b8360;padding-left:12px}
+.mobile-nav{background:#211a20f5;border-top:1px dashed #9a756277;backdrop-filter:blur(18px)}
+.mobile-nav button{color:#bda89a}.mobile-nav button.active{color:#f2bd8c}
+.avatar{border-radius:38% 50% 43% 49%;background:linear-gradient(145deg,#d6a779,#655348);border:2px solid #f1ddbf}
+@media(max-width:760px){
+ .main{padding-top:14px}
+ .topbar{padding-bottom:13px}
+ .heading{font-size:clamp(36px,10vw,46px);line-height:1.02}
+ .collage{min-height:265px;margin:2px 3px 0}
+ .stats{gap:10px}
+ .stat{border-radius:11px 15px 10px 14px}
+ .panel:before,.stat:before,.album-card:before,.feed-card:before,.hangout-card:before,.member-card:before,.notice-card:before,.poll-card:before{width:45px;height:10px;top:-4px}
+ .mobile-nav button.active{background:#e5ad7815;border-radius:8px}
+}
+
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <a class="brand" href="#" aria-label="AFTERBELL home" data-nav="dashboard"><div class="brand-mark">a.</div><div><div class="brand-name">AFTERBELL</div><div class="brand-sub">AFTER THE FINAL BELL</div></div></a>
+  <div class="nav-label">Your little corner</div>
+  <nav class="nav" aria-label="Main navigation">
+    <button class="active" data-nav="dashboard"><span class="nav-icon">⌂</span>Dashboard</button>
+    <button data-nav="memories"><span class="nav-icon">▧</span>Memories <span class="nav-count">12</span></button>
+    <button data-nav="albums"><span class="nav-icon">▤</span>Albums</button>
+    <button data-nav="hangouts"><span class="nav-icon">↗</span>Hangouts <span class="nav-count">2</span></button>
+    <button data-nav="polls"><span class="nav-icon">◉</span>Polls & opinions</button>
+    <button data-nav="notices"><span class="nav-icon">⚑</span>Notice board</button>
+    <button data-nav="members"><span class="nav-icon">♧</span>Our people</button>
+  </nav>
+  <div class="sidebar-bottom">
+    <div class="mini-note"><small>Little reminder</small><p>“One day, these ordinary days will be the memories.”</p></div>
+    <div class="user-mini"><div class="avatar">Y</div><div><b>Your profile</b><small>Demo preview · not signed in</small></div></div>
+  </div>
+</aside>
+<main class="main">
+  <header class="topbar">
+    <div class="mobile-brand"><div class="brand-mark">a.</div><b>AFTERBELL</b></div>
+    <div class="crumb">Your little corner <span style="color:#555"> / </span> <strong id="crumb-current">Dashboard</strong></div>
+    <div class="top-actions"><button class="icon-btn" id="search-focus" aria-label="Search">⌕</button><button class="ghost-btn" id="open-auth">Sign in <span class="top-label"> / Join the group</span></button><button class="primary-btn" id="quick-add">＋ <span class="top-label">Add memory</span></button></div>
+  </header>
+
+  <section class="page active" id="page-dashboard">
+    <div class="hero">
+      <div class="hero-copy"><div class="eyebrow">The good old days, in the making</div><h1 class="heading">School ends.<br><em>The stories don't.</em></h1><p class="subheading">A private little corner for the people, plans, and moments we don't want to lose when the final bell rings.</p><div class="hero-buttons"><button class="primary-btn" data-nav="memories">Explore our memories ↗</button><button class="ghost-btn" data-nav="hangouts">Plan a hangout</button></div><div class="micro-trust"><span class="dot"></span> A shared space for our people <span>·</span> <span>Made of little moments</span></div></div>
+      <div class="collage" aria-label="Decorative nostalgic photo collage"><div class="photo one"></div><div class="photo two"></div><div class="photo three"></div><div class="collage-caption"><div><strong>Somewhere between then & now</strong><small>Our story, still being written.</small></div><span class="polaroid-stamp">keep this forever ✳</span></div></div>
+    </div>
+    <div class="stats"><div class="stat"><span class="stat-icon">▧</span><strong id="stat-memories">12</strong><span>little memories</span></div><div class="stat"><span class="stat-icon">▤</span><strong id="stat-albums">4</strong><span>albums together</span></div><div class="stat"><span class="stat-icon">↗</span><strong id="stat-hangouts">2</strong><span>plans in the air</span></div><div class="stat"><span class="stat-icon">♧</span><strong id="stat-members">16</strong><span>people in our orbit</span></div></div>
+    <div class="section-head"><div><h2>Recently remembered</h2><p>A few pages from our shared scrapbook.</p></div><button class="ghost-btn" data-nav="memories">All memories ↗</button></div>
+    <div class="grid-2">
+      <div class="panel"><div class="panel-head"><h3>Fresh from the camera roll</h3><span>DEMO CONTENT</span></div><div class="memory-list" id="recent-memory-list"></div></div>
+      <div class="panel"><div class="panel-head"><h3>Coming up, maybe?</h3><span>MAKE IT HAPPEN</span></div><div class="event-list" id="dashboard-events"></div><div style="margin-top:17px"><button class="soft-btn" data-nav="hangouts">See plans & RSVP ↗</button></div></div>
+    </div>
+    <div class="section-head"><div><h2>A note to future us</h2><p>Because life moves ridiculously fast.</p></div></div>
+    <div class="panel quote-panel"><blockquote>“Take the blurry pictures. Stay five minutes longer. Make the ordinary feel like a story.”</blockquote><small>— a reminder from the afterbell years</small></div>
+  </section>
+
+  <section class="page" id="page-memories">
+    <div class="eyebrow">The camera roll, together</div><h1 class="heading">Little moments.<br><em>Big forever.</em></h1><p class="subheading">The blurry, loud, unplanned bits are usually the ones we keep. Add a memory and leave a little note.</p>
+    <div class="banner">Preview mode: sample memories are shown here. Uploads and comments will sync across friends after Supabase is connected.</div>
+    <div class="toolbar"><input class="search" id="memory-search" placeholder="Search memories…" aria-label="Search memories"><select class="filter" id="memory-filter" aria-label="Filter memories"><option value="all">All moments</option><option value="school">School days</option><option value="hangout">Hangouts</option><option value="random">Random chaos</option></select><button class="primary-btn" data-action="add-memory">＋ Add memory</button></div>
+    <div class="feed-grid" id="memory-grid"></div>
+  </section>
+
+  <section class="page" id="page-albums">
+    <div class="eyebrow">Sorted by the feeling</div><h1 class="heading">Our <em>albums.</em></h1><p class="subheading">Little time capsules for the days we keep talking about. Open an album to browse its sample memories.</p>
+    <div class="toolbar"><input class="search" id="album-search" placeholder="Find an album…" aria-label="Find an album"><button class="primary-btn" data-action="add-album">＋ New album</button></div>
+    <div class="album-grid" id="album-grid"></div>
+  </section>
+
+  <section class="page" id="page-hangouts">
+    <div class="eyebrow">The group chat, but organised</div><h1 class="heading">We should <em>actually go.</em></h1><p class="subheading">Throw an idea out there, see who's in, and turn “sometime soon” into a real plan.</p>
+    <div class="banner">RSVPs below are saved only in this browser preview. Shared live counts need the Supabase connection.</div>
+    <div class="toolbar"><div style="flex:1"></div><button class="primary-btn" data-action="add-hangout">＋ Plan something</button></div>
+    <div class="hangout-grid" id="hangout-grid"></div>
+  </section>
+
+  <section class="page" id="page-polls">
+    <div class="eyebrow">Democracy, with snacks</div><h1 class="heading">What's the <em>verdict?</em></h1><p class="subheading">Pick a side, share an opinion, or settle the most important question of the week.</p>
+    <div class="banner">Poll votes are demo-only in this prototype. Real group-wide voting will be enabled by Supabase.</div>
+    <div class="toolbar"><div style="flex:1"></div><button class="primary-btn" data-action="add-poll">＋ Create a poll</button></div>
+    <div class="poll-list" id="poll-list"></div>
+  </section>
+
+  <section class="page" id="page-notices">
+    <div class="eyebrow">In case you missed the memo</div><h1 class="heading">The <em>notice board.</em></h1><p class="subheading">The important bits, the last-minute plans, and the things everyone should know.</p>
+    <div class="banner">Sample notices are visible in preview. Publishing notices to all members requires an authenticated Supabase account and group permissions.</div>
+    <div class="toolbar"><div style="flex:1"></div><button class="primary-btn" data-action="add-notice">＋ Post a notice</button></div>
+    <div class="notice-list" id="notice-list"></div>
+  </section>
+
+  <section class="page" id="page-members">
+    <div class="eyebrow">Same chaos, different names</div><h1 class="heading">Our <em>people.</em></h1><p class="subheading">The ones who made the classroom feel like a whole universe.</p>
+    <div class="banner">These are fictional sample profiles for layout preview. Real profiles and profile photos will load after signup and membership approval.</div>
+    <div class="toolbar"><input class="search" id="member-search" placeholder="Find your people…" aria-label="Find members"><button class="ghost-btn" id="profile-info">How profiles work</button></div>
+    <div class="member-grid" id="member-grid"></div>
+  </section>
+</main>
+<nav class="mobile-nav" aria-label="Mobile navigation"><button class="active" data-nav="dashboard"><span>⌂</span>Home</button><button data-nav="memories"><span>▧</span>Memories</button><button data-nav="albums"><span>▤</span>Albums</button><button data-nav="hangouts"><span>↗</span>Plans</button><button data-nav="members"><span>♧</span>People</button></nav>
+</div>
+
+<div class="modal-backdrop" id="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal"><div class="modal-head"><h2 id="modal-title">A little something</h2><button class="close-btn" id="close-modal" aria-label="Close">×</button></div><div id="modal-content"></div></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* AFTERBELL frontend prototype.
+   Demo state is intentionally local to this browser. Supabase integration belongs in the next phase.
+   Never put a Supabase service_role/secret key in this file. The publishable/anon key is designed for client use with correct RLS. */
+const $ = (s,root=document)=>root.querySelector(s);
+const $$ = (s,root=document)=>[...root.querySelectorAll(s)];
+const state={
+  currentPage:'dashboard', rsvps:{}, votes:{}, memories:[
+    {id:1,title:'The last-bench chronicles',caption:'No lesson was safe from our commentary.',category:'school',date:'12 Sep 2026',by:'A friend',comments:8},
+    {id:2,title:'One more photo, promise',caption:'The sunset was good. The company was better.',category:'hangout',date:'04 Sep 2026',by:'A friend',comments:12},
+    {id:3,title:'Peak classroom chaos',caption:'Nobody remembers what started it.',category:'random',date:'28 Aug 2026',by:'A friend',comments:5},
+    {id:4,title:'The accidental group selfie',caption:'Somehow everyone blinked except the camera.',category:'school',date:'21 Aug 2026',by:'A friend',comments:16},
+    {id:5,title:'Canteen table legends',caption:'A ten-minute break that became a whole event.',category:'hangout',date:'14 Aug 2026',by:'A friend',comments:4},
+    {id:6,title:'The notebook doodle archive',caption:'Evidence that the margins taught us more.',category:'random',date:'08 Aug 2026',by:'A friend',comments:7}
+  ],
+  albums:[
+    {id:1,title:'The school-day diaries',desc:'Bell rings, stories begin.',count:24,tag:'CLASSICS'},
+    {id:2,title:'Canteen & corridor lore',desc:'The unofficial curriculum.',count:18,tag:'ICONIC'},
+    {id:3,title:'Out of uniform',desc:'Our off-campus era.',count:32,tag:'HANGOUTS'},
+    {id:4,title:'Random camera roll',desc:'No context. Just vibes.',count:41,tag:'CHAOS'}
+  ],
+  hangouts:[
+    {id:1,title:'Café catch-up',desc:'A long overdue catch-up. No rushing, just stories and something cold to drink.',date:'24',month:'OCT',when:'Saturday · 4:00 PM',where:'Pick the café together',interested:7,maybe:3},
+    {id:2,title:'Sunset & street food',desc:'Walk around, find snacks, take 200 photos of absolutely nothing.',date:'31',month:'OCT',when:'Saturday · 5:15 PM',where:'Decide the spot in chat',interested:9,maybe:2}
+  ],
+  polls:[
+    {id:1,question:'What should our next group plan be?',meta:'12 votes · closes when we decide',options:[{label:'Café + endless gossip',votes:6},{label:'Movie night',votes:3},{label:'Sunset + street food',votes:3}]},
+    {id:2,question:'Which memory deserves a whole album?',meta:'8 votes · just for fun',options:[{label:'School trips',votes:4},{label:'Classroom chaos',votes:3},{label:'Random selfies',votes:1}]}
+  ],
+  notices:[
+    {id:1,title:'Drop your favourite photos here',body:'Got a photo that instantly takes you back? Add it to the shared album once uploads are connected. Old photos very much welcome.',date:'18 Oct 2026',pinned:true},
+    {id:2,title:'Keep the group kind',body:'This is our little corner. Please post photos people are comfortable sharing, and ask before uploading anything private or embarrassing.',date:'17 Oct 2026',pinned:true},
+    {id:3,title:'Hangout ideas wanted',body:'No idea is too simple. Add your idea to the plans page and let the group vote with their RSVPs.',date:'16 Oct 2026',pinned:false}
+  ],
+  members:[
+    ['AS','Aarav','The planner'],['M','Meher','Playlist curator'],['R','Reyansh','Camera roll keeper'],['S','Siya','Meme department'],
+    ['K','Kabir','Always hungry'],['A','Anaya','The photographer'],['V','Vihaan','Late but present'],['I','Ira','Memory collector'],
+    ['D','Dev','Chaos coordinator'],['N','Navya','The voice of reason'],['A','Arjun','Sports updates'],['T','Tara','Vibe checker'],
+    ['Y','Yash','One more story'],['P','Pari','Group historian'],['Z','Zoya','Snack supplier'],['S','Sam','Unexpected comedian']
+  ]
+};
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function toast(message){const el=$('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove('show'),2800);}
+function go(page){if(!$('#page-'+page))return;state.currentPage=page;$$('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+page));$$('[data-nav]').forEach(b=>b.classList.toggle('active',b.dataset.nav===page));$('#crumb-current').textContent=({dashboard:'Dashboard',memories:'Memories',albums:'Albums',hangouts:'Hangouts',polls:'Polls & opinions',notices:'Notice board',members:'Our people'})[page]||page;window.scrollTo({top:0,behavior:'smooth'});if(page==='memories')renderMemories();if(page==='albums')renderAlbums();if(page==='hangouts')renderHangouts();if(page==='polls')renderPolls();if(page==='notices')renderNotices();if(page==='members')renderMembers();}
+function openModal(title,content){$('#modal-title').textContent=title;$('#modal-content').innerHTML=content;$('#modal-backdrop').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){$('#modal-backdrop').classList.remove('open');document.body.style.overflow='';}
+function field(label,name,placeholder='',type='text'){return `<div class="field"><label for="${name}">${label}</label><input id="${name}" name="${name}" type="${type}" placeholder="${placeholder}" required></div>`;}
+function textarea(label,name,placeholder=''){return `<div class="field"><label for="${name}">${label}</label><textarea id="${name}" name="${name}" placeholder="${placeholder}"></textarea></div>`;}
+function renderRecent(){const list=$('#recent-memory-list');list.innerHTML=state.memories.slice(0,3).map(m=>`<div class="memory-row"><div class="memory-thumb"></div><div class="memory-meta"><strong>${escapeHTML(m.title)}</strong><p>${escapeHTML(m.caption)}</p><small>${escapeHTML(m.date)} · ${m.comments} comments</small></div><span class="row-arrow">↗</span></div>`).join('');$('#stat-memories').textContent=state.memories.length+6;$('#stat-albums').textContent=state.albums.length;$('#stat-hangouts').textContent=state.hangouts.length;$('#stat-members').textContent=state.members.length;}
+function renderDashboardEvents(){$('#dashboard-events').innerHTML=state.hangouts.slice(0,2).map(h=>`<div class="event"><div class="datebox"><b>${escapeHTML(h.date)}</b><small>${escapeHTML(h.month)}</small></div><div class="event-info"><b>${escapeHTML(h.title)}</b><small>${escapeHTML(h.when)}</small></div><span class="pill">${(h.interested||0)} in</span></div>`).join('')||'<div class="empty-state">No plans yet.</div>';}
+function renderMemories(){const q=($('#memory-search')?.value||'').toLowerCase(),cat=$('#memory-filter')?.value||'all';const arr=state.memories.filter(m=>(cat==='all'||m.category===cat)&&`${m.title} ${m.caption}`.toLowerCase().includes(q));$('#memory-grid').innerHTML=arr.map((m,i)=>`<article class="feed-card"><div class="feed-image" style="filter:hue-rotate(${i*13}deg)"><span>✳ ${escapeHTML(m.date)} · ${escapeHTML(m.by)}</span></div><div class="feed-body"><h3>${escapeHTML(m.title)}</h3><p>${escapeHTML(m.caption)}</p><div class="feed-actions"><button data-action="comment" data-id="${m.id}">♡ ${m.comments} notes</button><button data-action="memory-detail" data-id="${m.id}">Open memory ↗</button></div></div></article>`).join('')||'<div class="empty-state" style="grid-column:1/-1">Nothing in this corner yet.<b>Try another search.</b></div>';}
+function renderAlbums(){const q=($('#album-search')?.value||'').toLowerCase();const arr=state.albums.filter(a=>(a.title+' '+a.desc).toLowerCase().includes(q));$('#album-grid').innerHTML=arr.map(a=>`<article class="album-card"><div class="album-cover"><span class="album-cover-label">${escapeHTML(a.title)}</span></div><div class="album-info"><strong>${escapeHTML(a.title)}</strong><p>${escapeHTML(a.desc)}</p><div class="album-footer"><span>${a.count} moments</span><span class="pill">${escapeHTML(a.tag)}</span></div><button class="soft-btn" style="width:100%;margin-top:13px" data-action="open-album" data-id="${a.id}">Open album ↗</button></div></article>`).join('')||'<div class="empty-state" style="grid-column:1/-1">No albums found.</div>';}
+function renderHangouts(){$('#hangout-grid').innerHTML=state.hangouts.map(h=>{const my=state.rsvps[h.id];return `<article class="hangout-card"><span class="pill green">✳ Group idea</span><h3>${escapeHTML(h.title)}</h3><p>${escapeHTML(h.desc)}</p><div class="hangout-meta"><span class="pill">◷ ${escapeHTML(h.when)}</span><span class="pill">⌖ ${escapeHTML(h.where)}</span></div><div style="display:flex;gap:8px;flex-wrap:wrap"><span class="pill green">✓ ${h.interested+(my==='interested'?1:0)} interested</span><span class="pill">? ${h.maybe+(my==='maybe'?1:0)} maybe</span></div><div class="rsvp-row"><button class="${my==='interested'?'selected':''}" data-action="rsvp" data-id="${h.id}" data-status="interested">✓ I'm in</button><button class="${my==='maybe'?'selected':''}" data-action="rsvp" data-id="${h.id}" data-status="maybe">? Maybe</button><button class="${my==='cant_go'?'selected':''}" data-action="rsvp" data-id="${h.id}" data-status="cant_go">Can't go</button></div></article>`}).join('')||'<div class="empty-state" style="grid-column:1/-1">No plans yet. Start one?</div>';}
+function renderPolls(){$('#poll-list').innerHTML=state.polls.map(p=>{const total=p.options.reduce((n,o)=>n+o.votes,0);return `<article class="poll-card"><span class="pill">${total} votes · demo</span><h3 style="margin-top:12px">${escapeHTML(p.question)}</h3><p>${escapeHTML(p.meta)}</p>${p.options.map((o,i)=>{const chosen=state.votes[p.id]===i;const percent=total?Math.round(o.votes/total*100):0;return `<button class="poll-option ${chosen?'chosen':''}" data-action="vote" data-poll="${p.id}" data-option="${i}"><span>${chosen?'◉':'○'}</span>${escapeHTML(o.label)}<span class="percent">${percent}%</span></button><div class="poll-bar"><span style="width:${percent}%"></span></div>`}).join('')}</article>`}).join('')||'<div class="empty-state">No polls yet. Start a debate.</div>';}
+function renderNotices(){$('#notice-list').innerHTML=state.notices.slice().sort((a,b)=>Number(b.pinned)-Number(a.pinned)).map(n=>`<article class="notice"><div class="notice-pin">${n.pinned?'⚑':'✳'}</div><div><h3>${escapeHTML(n.title)} ${n.pinned?'<span class="pill">PINNED</span>':''}</h3><p>${escapeHTML(n.body)}</p><small>${escapeHTML(n.date)} · Posted by group admin (demo)</small></div></article>`).join('')||'<div class="empty-state">The notice board is quiet for now.</div>';}
+function renderMembers(){const q=($('#member-search')?.value||'').toLowerCase();const arr=state.members.filter(m=>m[1].toLowerCase().includes(q)||m[2].toLowerCase().includes(q));$('#member-grid').innerHTML=arr.map(m=>`<article class="member-card"><div class="member-avatar">${escapeHTML(m[0])}</div><h3>${escapeHTML(m[1])}</h3><p>${escapeHTML(m[2])}</p><small>✳ Afterbell regular</small></article>`).join('')||'<div class="empty-state" style="grid-column:1/-1">No one by that name yet.</div>';}
+function showAuth(){openModal('Come on in',`<p class="subheading" style="margin:0 0 18px">Your group, your memories. Sign-up will connect to Supabase in Phase 3.</p><div class="form-grid">${field('EMAIL ADDRESS','auth-email','you@example.com','email')}${field('PASSWORD','auth-password','At least 8 characters','password')}${field('DISPLAY NAME','auth-name','What should friends call you?')}<div class="banner" style="margin:0">Prototype only: this form does not create an account yet. Your password is not sent or saved anywhere.</div></div><div class="form-actions"><button class="ghost-btn" id="auth-cancel">Maybe later</button><button class="primary-btn" id="auth-submit">Preview signup</button></div>`);}
+function addMemoryModal(){openModal('Save a little moment',`<p class="subheading" style="margin:0 0 17px">Give this memory a title. Shared uploads will be enabled after Supabase Storage is connected.</p><form id="memory-form" class="form-grid">${field('MEMORY TITLE','memory-title','The day we...')}${textarea('A LITTLE NOTE','memory-caption','What should future us remember?')}<div class="field"><label for="memory-category">CATEGORY</label><select id="memory-category" name="memory-category"><option value="school">School days</option><option value="hangout">Hangouts</option><option value="random">Random chaos</option></select></div><div class="field"><label for="memory-file">PHOTO (LOCAL PREVIEW ONLY)</label><input id="memory-file" type="file" accept="image/*"><small style="display:block;color:var(--muted);margin-top:7px">Selected photos are previewed in this browser only; they are not uploaded or shared.</small></div><div id="image-preview"></div><div class="form-actions"><button type="button" class="ghost-btn" id="cancel-form">Cancel</button><button class="primary-btn">Add to preview</button></div></form>`);$('#memory-file').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const url=URL.createObjectURL(f);$('#image-preview').innerHTML=`<img src="${url}" alt="Local image preview" style="width:100%;max-height:180px;object-fit:cover;border-radius:12px">`;});$('#memory-form').addEventListener('submit',e=>{e.preventDefault();const title=$('#memory-title').value.trim();if(!title)return;state.memories.unshift({id:Date.now(),title,caption:$('#memory-caption').value.trim()||'A moment worth keeping.',category:$('#memory-category').value,date:'Just now',by:'You (preview)',comments:0});closeModal();renderRecent();renderMemories();toast('Added to this browser preview — not shared yet.');});}
+function addAlbumModal(){openModal('Start a time capsule',`<form id="album-form" class="form-grid">${field('ALBUM TITLE','album-title','The trip we keep talking about')}${textarea('DESCRIPTION','album-desc','What belongs in this album?')}<div class="banner" style="margin:0">This creates a demo album in the current browser only.</div><div class="form-actions"><button type="button" class="ghost-btn" id="cancel-form">Cancel</button><button class="primary-btn">Create album</button></div></form>`);$('#album-form').addEventListener('submit',e=>{e.preventDefault();state.albums.unshift({id:Date.now(),title:$('#album-title').value.trim(),desc:$('#album-desc').value.trim()||'A new chapter in our story.',count:0,tag:'NEW'});closeModal();renderAlbums();renderRecent();toast('Album added to preview.');});}
+function addHangoutModal(){openModal('Make a plan',`<form id="hangout-form" class="form-grid">${field('WHAT ARE WE DOING?','hang-title','Café, movie, sunset…')}${textarea('THE VIBE','hang-desc','Keep it low-key or make it a whole thing.')}${field('DATE','hang-date','24','text')}${field('MONTH','hang-month','OCT','text')}${field('TIME','hang-time','Saturday · 4:00 PM')}${field('PLACE / MEETUP IDEA','hang-place','Pick together')}<div class="banner" style="margin:0">This plan will only exist in this browser preview until backend sync is connected.</div><div class="form-actions"><button type="button" class="ghost-btn" id="cancel-form">Cancel</button><button class="primary-btn">Add plan</button></div></form>`);$('#hangout-form').addEventListener('submit',e=>{e.preventDefault();state.hangouts.unshift({id:Date.now(),title:$('#hang-title').value.trim(),desc:$('#hang-desc').value.trim()||'A new idea for the group.',date:$('#hang-date').value.trim()||'TBD',month:$('#hang-month').value.trim().toUpperCase()||'SOON',when:$('#hang-time').value.trim()||'Time to decide',where:$('#hang-place').value.trim()||'To be decided',interested:0,maybe:0});closeModal();renderHangouts();renderDashboardEvents();renderRecent();toast('Plan added to preview.');});}
+function addPollModal(){openModal('Ask the group',`<form id="poll-form" class="form-grid">${field('QUESTION','poll-question','Where should we go next?')}${field('OPTION 1','poll-one','Café')}${field('OPTION 2','poll-two','Movie night')}${field('OPTION 3 (OPTIONAL)','poll-three','Street food')}<div class="banner" style="margin:0">Demo poll only. Votes will not sync to friends until backend integration.</div><div class="form-actions"><button type="button" class="ghost-btn" id="cancel-form">Cancel</button><button class="primary-btn">Create poll</button></div></form>`);$('#poll-form').addEventListener('submit',e=>{e.preventDefault();const options=[$('#poll-one').value,$('#poll-two').value,$('#poll-three').value].map(s=>s.trim()).filter(Boolean).map(label=>({label,votes:0}));if(options.length<2){toast('Add at least two options.');return;}state.polls.unshift({id:Date.now(),question:$('#poll-question').value.trim(),meta:'0 votes · demo poll',options});closeModal();renderPolls();toast('Poll added to preview.');});}
+function addNoticeModal(){openModal('Pin a note for everyone',`<form id="notice-form" class="form-grid">${field('NOTICE TITLE','notice-title','Quick update for everyone')}${textarea('MESSAGE','notice-body','Write the details here…')}<div class="banner" style="margin:0">Real notice posting will require an approved admin account.</div><div class="form-actions"><button type="button" class="ghost-btn" id="cancel-form">Cancel</button><button class="primary-btn">Add demo notice</button></div></form>`);$('#notice-form').addEventListener('submit',e=>{e.preventDefault();state.notices.unshift({id:Date.now(),title:$('#notice-title').value.trim(),body:$('#notice-body').value.trim(),date:'Just now',pinned:false});closeModal();renderNotices();toast('Notice added to preview.');});}
+function commentModal(id){const m=state.memories.find(x=>x.id===Number(id));if(!m)return;openModal('Leave a little note',`<p style="font:italic 20px var(--serif);margin:0 0 8px">${escapeHTML(m.title)}</p><p class="subheading" style="margin:0 0 18px">${escapeHTML(m.caption)}</p><form id="comment-form" class="form-grid">${textarea('YOUR COMMENT','comment-text','This reminds me of…')}<div class="banner" style="margin:0">Comments are local preview interactions and are not shared yet.</div><div class="form-actions"><button type="button" class="ghost-btn" id="cancel-form">Cancel</button><button class="primary-btn">Add comment</button></div></form>`);$('#comment-form').addEventListener('submit',e=>{e.preventDefault();const t=$('#comment-text').value.trim();if(!t)return;m.comments++;closeModal();renderMemories();renderRecent();toast('Comment preview added. Shared comments come in Phase 3.');});}
+function showDetail(id){const m=state.memories.find(x=>x.id===Number(id));if(!m)return;openModal(m.title,`<div class="feed-image" style="border-radius:14px;margin-bottom:15px"></div><p style="font:italic 20px var(--serif)">${escapeHTML(m.caption)}</p><p class="subheading">${escapeHTML(m.date)} · ${escapeHTML(m.by)}</p><div class="banner" style="margin:0">Sample memory artwork is decorative placeholder imagery. Real photos will appear after shared storage is connected.</div><div class="form-actions"><button class="primary-btn" id="detail-comment" data-id="${m.id}">♡ Leave a note</button></div>`);}
+function showAlbum(id){const a=state.albums.find(x=>x.id===Number(id));if(!a)return;openModal(a.title,`<p class="subheading">${escapeHTML(a.desc)}</p><div class="empty-state" style="margin-top:15px"><div style="font-size:26px">▧</div><b>${a.count} moments, waiting to be gathered</b><p>Sample album layout. Once Supabase Storage is connected, approved group members can upload and browse shared photos here.</p><button class="primary-btn" id="album-add-memory">＋ Add a memory</button></div>`);}
+document.addEventListener('click',e=>{
+ const nav=e.target.closest('[data-nav]');if(nav){e.preventDefault();go(nav.dataset.nav);return;}
+ const action=e.target.closest('[data-action]');if(action){const a=action.dataset.action,id=action.dataset.id;
+  if(a==='add-memory')addMemoryModal();if(a==='add-album')addAlbumModal();if(a==='add-hangout')addHangoutModal();if(a==='add-poll')addPollModal();if(a==='add-notice')addNoticeModal();
+  if(a==='comment')commentModal(id);if(a==='memory-detail')showDetail(id);if(a==='open-album')showAlbum(id);
+  if(a==='rsvp'){const h=state.hangouts.find(x=>x.id===Number(id));const old=state.rsvps[id];state.rsvps[id]=old===action.dataset.status?null:action.dataset.status;if(h&&old!==state.rsvps[id]){if(old==='interested')h.interested=Math.max(0,h.interested-1);if(old==='maybe')h.maybe=Math.max(0,h.maybe-1);if(state.rsvps[id]==='interested')h.interested++;if(state.rsvps[id]==='maybe')h.maybe++;}renderHangouts();renderDashboardEvents();toast('RSVP updated in this browser preview.');}
+  if(a==='vote'){const p=state.polls.find(x=>x.id===Number(action.dataset.poll));if(p){const next=Number(action.dataset.option),old=state.votes[p.id];if(old!==undefined)p.options[old].votes=Math.max(0,p.options[old].votes-1);if(old===next){delete state.votes[p.id]}else{p.options[next].votes++;state.votes[p.id]=next;}renderPolls();toast('Vote updated in preview only.');}}
+ }
+});
+$('#quick-add').addEventListener('click',addMemoryModal);$('#open-auth').addEventListener('click',showAuth);$('#search-focus').addEventListener('click',()=>{go('memories');$('#memory-search').focus();});$('#close-modal').addEventListener('click',closeModal);$('#modal-backdrop').addEventListener('click',e=>{if(e.target===$('#modal-backdrop'))closeModal();});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+document.addEventListener('click',e=>{if(e.target.id==='cancel-form'||e.target.id==='auth-cancel')closeModal();if(e.target.id==='auth-submit'){toast('Signup is a UI preview only. Supabase auth comes in Phase 3.');}if(e.target.id==='detail-comment')commentModal(e.target.dataset.id);if(e.target.id==='album-add-memory')addMemoryModal();if(e.target.id==='profile-info')toast('Profiles will use Supabase Auth and the profiles table.');});
+$('#memory-search').addEventListener('input',renderMemories);$('#memory-filter').addEventListener('change',renderMemories);$('#album-search').addEventListener('input',renderAlbums);$('#member-search').addEventListener('input',renderMembers);
+renderRecent();renderDashboardEvents();renderMemories();renderAlbums();renderHangouts();renderPolls();renderNotices();renderMembers();
+</script>
+</body>
+</html>
